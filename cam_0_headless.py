@@ -15,7 +15,7 @@ def main():
 
 
     #cam = VideoStream(src=0).start
-    cap = cv2.VideoCapture("/dev/video0")
+    cap = cv2.VideoCapture("/dev/video1")
     #cap.set(cv2.CAP_PROP_SETTINGS, 1)
     
     #if not cap.read():
