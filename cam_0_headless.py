@@ -3,8 +3,8 @@ from pysimplendi import NDISender
 from pysimplendi import NDIReceiver
 import cv2
 import numpy as np
-from imutils.video import FPS
-from imutils.video import FileVideoStream
+#from imutils.video import FPS
+#from imutils.video import FileVideoStream
 
 
 def main():
@@ -14,9 +14,9 @@ def main():
 
 
     cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-    cap.set(cv2.CAP_PROP_SETTINGS, 1)
+    #cap.set(cv2.CAP_PROP_SETTINGS, 1)
 
-    fps = FPS().start()
+   # fps = FPS().start()
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
     cap.set(cv2.CAP_PROP_FPS, 60)
             
@@ -37,7 +37,7 @@ def main():
 
             
         sender.send(frame)
-        fps.update()
+        #fps.update()
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
         
