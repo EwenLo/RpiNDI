@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 #from imutils.video import FPS
 #from imutils.video import FileVideoStream
-
+from imutils.video import VideoStream
 
 def main():
     sender = NDISender("Cam_0")
@@ -13,7 +13,8 @@ def main():
 
 
 
-    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+    #cam = VideoStream(src=0).start
+    cap = cv2.VideoCapture(0)
     #cap.set(cv2.CAP_PROP_SETTINGS, 1)
 
    # fps = FPS().start()
@@ -35,8 +36,12 @@ def main():
        # print(frameWidth)
         #print(frameHeight)
 
+        try:
             
-        sender.send(np.array(frame))
+            sender.send(frame)
+        except TypeError as e:
+            print(f"something went wrong: {e}")
+            continue
         #fps.update()
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
