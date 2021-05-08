@@ -45,14 +45,14 @@ def main():
        # print(frameWidth)
         #print(frameHeight)
 
-        try:
-            
-            sender.send(frame)
-        except TypeError as e:
-            print(f"something went wrong: {e}")
-            print(frame)
-            print(type(frame))
-            continue
+        #try:
+        #    
+        #    sender.send(frame)
+        #except TypeError as e:
+        #    print(f"something went wrong: {e}")
+        #    print(frame)
+        #    print(type(frame))
+        #    continue
         #fps.update()
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
