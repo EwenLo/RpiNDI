@@ -37,7 +37,6 @@ def main():
 
             
         sender.send(frame)
-        cv2.imshow('frame1',frame)
         fps.update()
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
