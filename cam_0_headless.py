@@ -15,8 +15,9 @@ def main():
 
 
     #cam = VideoStream(src=0).start
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("/dev/video10")
     #cap.set(cv2.CAP_PROP_SETTINGS, 1)
+    
     if not cap.read():
         for  i in range(1,20):
             cap = cv2.VideoCapture(i)
@@ -24,6 +25,7 @@ def main():
                 continue
             else:
                 break
+   
    # fps = FPS().start()
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
     cap.set(cv2.CAP_PROP_FPS, 60)
@@ -48,6 +50,8 @@ def main():
             sender.send(frame)
         except TypeError as e:
             print(f"something went wrong: {e}")
+            print(frame)
+            print(type(frame))
             continue
         #fps.update()
         if cv2.waitKey(1) & 0xFF == ord('q'):
